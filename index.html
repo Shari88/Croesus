@@ -23,6 +23,7 @@ a{color:inherit}
 h1,h2,h3{font-family:var(--secondary);color:var(--head);margin:0 0 1.1rem;line-height:1.15}
 h1,h2{font-weight:400;letter-spacing:-.01em}
 h2{font-size:clamp(1.9rem,4.2vw,2.9rem)}
+#about h2,#values h2,#services h2{font-size:clamp(1.71rem,3.78vw,2.61rem)}
 h3{font-size:1.1rem;font-weight:700}
 p{margin:0 0 1rem;max-width:62ch}
 .wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
@@ -49,7 +50,7 @@ nav .cta{background:var(--amber);color:#14233B;font-weight:700;padding:.55rem 1.
 .hero{isolation:isolate}.hero .wm{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:center;mix-blend-mode:luminosity;opacity:.4;-webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.35),#000 70%);mask-image:linear-gradient(90deg,rgba(0,0,0,.35),#000 70%)}
 
 .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;align-items:center}
-.hero h1{color:#fff;font-size:clamp(2.3rem,6vw,4.2rem);max-width:14ch}
+.hero h1{color:#fff;font-size:clamp(1.71rem,3.78vw,2.61rem);max-width:none}
 .hero p{color:#E3E9F2;font-size:1rem;max-width:46ch}
 .hero .emblem{justify-self:center;width:min(100%,320px);filter:drop-shadow(0 18px 40px rgba(0,0,0,.35))}
 .btn{display:inline-block;margin:.8rem .8rem 0 0;padding:.9rem 1.8rem;background:var(--amber);color:#14233B;text-decoration:none;font-weight:700;font-size:.9rem;border:2px solid var(--amber);border-radius:3px}
@@ -117,6 +118,14 @@ footer{background:#0B1A30;color:#B9C4D4;font-size:.8rem;padding:1.4rem 0 calc(1.
 }
 @media (max-width:520px){.values{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Language switch */
+.lang{flex:none;display:inline-flex;align-items:center;justify-content:center;padding:.35rem .45rem;background:transparent;border:1px solid rgba(255,255,255,.4);border-radius:3px;cursor:pointer;line-height:0}
+.lang:hover{border-color:var(--amber)}
+.lang svg{width:28px;height:19px;display:block;border-radius:1px}
+
+/* Justified text */
+p,.values dd{text-align:justify;text-justify:inter-word;hyphens:none;-webkit-hyphens:none}
 </style>
 </head>
 <body>
@@ -136,6 +145,9 @@ footer{background:#0B1A30;color:#B9C4D4;font-size:.8rem;padding:1.4rem 0 calc(1.
         <li><a class="cta" href="#contact">Contact us</a></li>
       </ul>
     </nav>
+    <button type="button" class="lang" id="lang-toggle" aria-label="Voir ce site en français" title="Français" lang="fr">
+      <svg id="lang-flag" viewBox="0 0 3 2" aria-hidden="true" focusable="false"><rect width="1" height="2" fill="#0055A4"/><rect x="1" width="1" height="2" fill="#FFFFFF"/><rect x="2" width="1" height="2" fill="#EF4135"/></svg>
+    </button>
   </div>
 </header>
 
@@ -145,7 +157,7 @@ footer{background:#0B1A30;color:#B9C4D4;font-size:.8rem;padding:1.4rem 0 calc(1.
     <div class="wrap">
       <div>
         <span class="rule"></span>
-        <h1>Treasury solutions built around you</h1>
+        <h1>Customised Treasury Solutions</h1>
         <p>Croesus Treasury Management Ltd crafts bespoke solutions to assist clients to take informed market decisions and achieve their execution objectives.</p>
         <a class="btn" href="#services">Our services</a><a class="btn ghost" href="#contact">Contact us</a>
       </div>
@@ -188,7 +200,7 @@ footer{background:#0B1A30;color:#B9C4D4;font-size:.8rem;padding:1.4rem 0 calc(1.
     <div class="wrap">
       <span class="rule"></span>
       <h2>Our services</h2>
-      <p>The Company provides treasury services to clients that do not have an in-house expertise and infrastructure. The services provided will be specifically focussed on currency management.</p>
+      <p>The Company provides treasury services to clients that do not have an in-house expertise and infrastructure.</p>
       <div class="svc-grid">
         <article><h3>Currency management</h3><p>Treasury services for clients without in-house expertise and infrastructure, specifically focussed on currency management.</p></article>
         <article><h3>Currency Overlay</h3><p>To effectively minimise risks with regard to open positions or future exposure on the market that may require coverage.</p></article>
@@ -217,5 +229,112 @@ footer{background:#0B1A30;color:#B9C4D4;font-size:.8rem;padding:1.4rem 0 calc(1.
 </main>
 
 <footer><div class="wrap">Croesus Treasury Management Ltd. Regulated and licensed by the Financial Services Commission of Mauritius.</div></footer>
+
+<script>
+(function(){
+  var FR = {
+  "About": "À propos",
+  "Vision, mission and values": "Vision, mission et valeurs",
+  "Services": "Services",
+  "Contact us": "Contactez-nous",
+  "Customised Treasury Solutions": "Solutions de trésorerie personnalisées",
+  "Croesus Treasury Management Ltd crafts bespoke solutions to assist clients to take informed market decisions and achieve their execution objectives.": "Croesus Treasury Management Ltd conçoit des solutions sur mesure pour aider ses clients à prendre des décisions de marché éclairées et à atteindre leurs objectifs d’exécution.",
+  "Our services": "Nos services",
+  "About Croesus": "À propos de Croesus",
+  "Incorporated in the jurisdiction of Mauritius, Croesus Treasury Management Ltd is regulated and licensed by the Financial Services Commission of Mauritius. The Company crafts bespoke solutions to assist clients to take informed market decisions and achieve their execution objectives.": "Constituée à Maurice, Croesus Treasury Management Ltd est réglementée et agréée par la Financial Services Commission de Maurice. La Société conçoit des solutions sur mesure pour aider ses clients à prendre des décisions de marché éclairées et à atteindre leurs objectifs d’exécution.",
+  "Liquidity management solutions, designed to optimise otherwise unused excess cash and liquidity to derive revenue, are an integral part of this fintech firm’s endeavour towards a holistic perspective to treasury management. Because every client is different, realities and constraints are carefully studied in order to devise customised solutions.": "Les solutions de gestion de la liquidité, conçues pour optimiser les excédents de trésorerie et de liquidités autrement inutilisés afin d’en tirer un revenu, font partie intégrante de la démarche de cette entreprise fintech vers une vision globale de la gestion de trésorerie. Chaque client étant différent, ses réalités et ses contraintes sont étudiées avec soin afin de concevoir des solutions personnalisées.",
+  "Our vision": "Notre vision",
+  "Our mission": "Notre mission",
+  "To maximise benefits in favour of clients, the organisation and human kind.": "Maximiser les bénéfices au profit des clients, de l’organisation et de l’humanité.",
+  "Our values": "Nos valeurs",
+  "Passion": "Passion",
+  "To be fully committed to what we do.": "S’engager pleinement dans ce que nous faisons.",
+  "Excellence": "Excellence",
+  "Deliver the right mix of unparalleled service and strategic insights to provide the winning edge to our clients.": "Offrir le juste équilibre entre un service inégalé et une vision stratégique, afin de donner à nos clients l’avantage décisif.",
+  "Collaboration": "Collaboration",
+  "Achieve synergy with clients, partners and talents by aligning respective perspectives to triumph together.": "Créer une synergie avec nos clients, partenaires et talents en alignant nos perspectives respectives pour réussir ensemble.",
+  "Integrity": "Intégrité",
+  "Always do and stand by what we feel is right.": "Toujours faire ce que nous estimons juste, et l’assumer.",
+  "Social responsibility": "Responsabilité sociale",
+  "Take into account the larger picture at all times.": "Tenir compte à tout moment de la situation dans son ensemble.",
+  "The Company provides treasury services to clients that do not have an in-house expertise and infrastructure.": "La Société fournit des services de trésorerie aux clients qui ne disposent ni de l’expertise ni de l’infrastructure en interne.",
+  "Currency management": "Gestion des devises",
+  "Treasury services for clients without in-house expertise and infrastructure, specifically focussed on currency management.": "Services de trésorerie pour les clients sans expertise ni infrastructure en interne, axés spécifiquement sur la gestion des devises.",
+  "Currency Overlay": "Overlay de change",
+  "To effectively minimise risks with regard to open positions or future exposure on the market that may require coverage.": "Réduire efficacement les risques liés aux positions ouvertes ou aux expositions futures sur le marché pouvant nécessiter une couverture.",
+  "Cash and Liquidity Management": "Gestion de la trésorerie et des liquidités",
+  "To assist clients to derive a return from otherwise dormant cash. Bearing in mind the constraints of our clients, we devise tailor-made solutions to fit the specific needs of the client at hand.": "Aider les clients à tirer un rendement de liquidités qui resteraient autrement dormantes. En tenant compte des contraintes de nos clients, nous élaborons des solutions sur mesure adaptées aux besoins spécifiques de chacun.",
+  "Payment Processing": "Traitement des paiements",
+  "To process payments on behalf of clients which adds an independent layer of control over the handling of payments and more importantly allows clients to focus resources on core business activities.": "Traiter les paiements pour le compte des clients, ce qui ajoute une couche de contrôle indépendante dans la gestion des paiements et, surtout, permet aux clients de concentrer leurs ressources sur leurs activités principales.",
+  "7th Floor Ebene Mews": "7e étage, Ebene Mews",
+  "Tel:": "Tél. :",
+  "Email:": "E-mail :",
+  "Croesus Treasury Management Ltd. Regulated and licensed by the Financial Services Commission of Mauritius.": "Croesus Treasury Management Ltd. Réglementée et agréée par la Financial Services Commission de Maurice.",
+  "Treasury Management": "Gestion de trésorerie"
+};
+  var ARIA = [[".brand", "aria-label", "Croesus Treasury Management home", "Croesus Treasury Management – accueil"], ["#menu", "aria-label", "Toggle menu", "Afficher ou masquer le menu"], ["nav", "aria-label", "Main", "Navigation principale"]];
+  var FLAG_FR = "<rect width=\"1\" height=\"2\" fill=\"#0055A4\"/><rect x=\"1\" width=\"1\" height=\"2\" fill=\"#FFFFFF\"/><rect x=\"2\" width=\"1\" height=\"2\" fill=\"#EF4135\"/>", FLAG_EN = "<rect width=\"60\" height=\"40\" fill=\"#012169\"/><path d=\"M0 0L60 40M60 0L0 40\" stroke=\"#fff\" stroke-width=\"8\"/><path d=\"M0 0L60 40M60 0L0 40\" stroke=\"#C8102E\" stroke-width=\"3\"/><path d=\"M30 0V40M0 20H60\" stroke=\"#fff\" stroke-width=\"13\"/><path d=\"M30 0V40M0 20H60\" stroke=\"#C8102E\" stroke-width=\"8\"/>";
+  var KEY = 'site-lang';
+  var originals = new WeakMap();
+  var enTitle = document.title;
+  var btn = document.getElementById('lang-toggle');
+  var flag = document.getElementById('lang-flag');
+
+  function norm(s){ return s.replace(/\s+/g,' ').trim(); }
+
+  function textNodes(){
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        var p = n.parentNode.nodeName;
+        if (p === 'SCRIPT' || p === 'STYLE' || !n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var list = [], n;
+    while ((n = w.nextNode())) list.push(n);
+    return list;
+  }
+
+  function apply(lang){
+    var fr = lang === 'fr';
+    textNodes().forEach(function(n){
+      if (!originals.has(n)) originals.set(n, n.nodeValue);
+      var orig = originals.get(n);
+      var key = norm(orig);
+      if (!fr) { n.nodeValue = orig; return; }
+      if (Object.prototype.hasOwnProperty.call(FR, key)) {
+        var lead = orig.match(/^\s*/)[0], trail = orig.match(/\s*$/)[0];
+        n.nodeValue = lead + FR[key] + trail;
+      }
+    });
+    ARIA.forEach(function(a){
+      var el = document.querySelector(a[0]);
+      if (el) el.setAttribute(a[1], fr ? a[3] : a[2]);
+    });
+    document.documentElement.lang = fr ? 'fr' : 'en';
+    document.title = enTitle;
+    // The button always offers the *other* language
+    if (fr) {
+      flag.setAttribute('viewBox', '0 0 60 40'); flag.innerHTML = FLAG_EN;
+      btn.setAttribute('aria-label', 'View this site in English');
+      btn.setAttribute('title', 'English'); btn.setAttribute('lang', 'en');
+    } else {
+      flag.setAttribute('viewBox', '0 0 3 2'); flag.innerHTML = FLAG_FR;
+      btn.setAttribute('aria-label', 'Voir ce site en français');
+      btn.setAttribute('title', 'Français'); btn.setAttribute('lang', 'fr');
+    }
+  }
+
+  var current = 'en';
+  try { if (localStorage.getItem(KEY) === 'fr') current = 'fr'; } catch (e) {}
+  if (current === 'fr') apply('fr');
+
+  btn.addEventListener('click', function(){
+    current = current === 'fr' ? 'en' : 'fr';
+    apply(current);
+    try { localStorage.setItem(KEY, current); } catch (e) {}
+  });
+})();
+</script>
 </body>
 </html>
